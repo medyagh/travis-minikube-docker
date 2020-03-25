@@ -1,12 +1,14 @@
 sudo: required
+language: go
 os: osx
 osx_image: xcode11.3
 services:
   - docker
-script:
+install:
   - docker version
   - docker info
   - curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64 && sudo install minikube-linux-amd64 /usr/local/bin/minikube
+script:
   - minikube start --driver=docker --alsologtostderr -v=8
   - docker ps
   - docker images
