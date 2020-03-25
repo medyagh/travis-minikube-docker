@@ -3,12 +3,13 @@ osx_image: xcode11.3
 language: go
 go:
   - 1.13.8
-services:
-  - docker
 sudo: required
-install:
+before_install:
+  - docker version || true
+  - ./hack/install_docker_on_travis.sh
   - docker version
   - docker info
+install:
   - curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64 && sudo install minikube-linux-amd64 /usr/local/bin/minikube
 script:
   - minikube start --driver=docker --alsologtostderr -v=8
