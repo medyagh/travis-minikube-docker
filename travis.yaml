@@ -1,9 +1,11 @@
-sudo: required
-language: go
 os: osx
 osx_image: xcode11.3
+language: go
+go:
+  - 1.13.8
 services:
   - docker
+sudo: required
 install:
   - docker version
   - docker info
