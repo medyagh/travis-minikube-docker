@@ -2,7 +2,7 @@
 
 set -x
 
-brew cask install docker
+brew install docker
 
 # https://github.com/docker/for-mac/issues/2359
 # https://github.com/drud/ddev/issues/575
